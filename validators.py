@@ -105,7 +105,7 @@ def validate_codice_fiscale(value):
     ) % 26
 
     carattere_controllo = conversione_controllo[valore_controllo]
-    print(carattere_controllo)
+
     if carattere_controllo != value[-1].upper():
         raise ValidationError('Inserisci un codice fiscale formalmente valido')
 
