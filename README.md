@@ -1,5 +1,4 @@
-django-italian-utils
-====================
+# django-italian-utils
 
 Libreria di utility per semplificare la creazione di applicazioni italiane
 
@@ -21,3 +20,7 @@ class Azienda(InformazioniBase):
 
     # ...
 ```
+
+## TODO
+
+- Aggiungere l'elenco aggiornato dei comuni italiani (riferimento: http://www.istat.it/it/archivio/comuni) da usare nei `ChoiceField`
