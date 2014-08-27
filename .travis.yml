@@ -1,7 +1,10 @@
 language: python
 
 python:
- - 2.7
- - 3.4
+  - 2.7
+  - 3.4
+
+install:
+  - pip install https://www.djangoproject.com/download/1.7c3/tarball/
 
 script: python manage.py test italian_utils
