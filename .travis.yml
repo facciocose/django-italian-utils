@@ -15,5 +15,6 @@ install:
 before_script:
   - django-admin.py startproject project
   - cd project
+  - python manage.py migrate
 
 script: python manage.py test italian_utils
