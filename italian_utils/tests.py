@@ -1,7 +1,7 @@
 from django.test import TestCase
 from .validators import validate_codice_fiscale, validate_partita_iva
 from django.core.exceptions import ValidationError
-
+from .utils import REGIONI
 
 class ValidateCodiceFiscaleTestCase(TestCase):
     def test_codice_fiscale_vuoto(self):
@@ -46,4 +46,14 @@ class ValidatePartitaIva(TestCase):
             ValidationError,
             validate_partita_iva,
             '12345678901'
+        )
+
+
+class ValidateRegioni(TestCase):
+    def test_numero_regioni(self):
+        self.assertEqual(len(REGIONI), 20)
+
+    def test_roma_in_lazio(self):
+        self.assertTrue(
+            any(['Roma' in comune['nome'] for comune in REGIONI['Lazio']])
         )
