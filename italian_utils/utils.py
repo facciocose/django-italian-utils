@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 REGIONI = {
     'Abruzzo': [
         {'abbr': 'AQ', 'nome': "L'Aquila"},
