@@ -31,7 +31,7 @@ class Azienda(models.Model):
     # ...
 ```
 
-Un dizionario delle [regioni e i relativi comuni con abbreviazioni annesse](https://github.com/facciocose/django-italian-utils/blob/master/italian_utils/utils.py).
+Un dizionario delle [regioni e le relative province con abbreviazioni annesse](https://github.com/facciocose/django-italian-utils/blob/master/italian_utils/utils.py).
 
 ## TODO
 
