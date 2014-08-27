@@ -10,10 +10,13 @@ env:
 
 install:
   - pip install $DJANGO
+  - pip install coverage
+  - pip install coveralls
   - python setup.py develop
 
 before_script:
   - django-admin.py startproject project
   - cd project
 
-script: python manage.py test italian_utils
+script: coverage run --source='italian_utils' manage.py test italian_utils
+after_success: coveralls
