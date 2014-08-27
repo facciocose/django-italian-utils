@@ -4,6 +4,12 @@
 
 Libreria di utility per semplificare la creazione di applicazioni italiane
 
+## Installazione
+
+`pip install django-italian-utils`
+
+## Esempi
+
 Attualmente sono presenti dei validatori per **codice fiscale** e **partita iva** da usare nei modelli.
 ```python
 from italian_utils.validators import validate_codice_fiscale, validate_partita_iva
