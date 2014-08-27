@@ -1,6 +1,6 @@
 # django-italian-utils
 
-[![Build Status](https://travis-ci.org/facciocose/django-italian-utils.svg?branch=master)](https://travis-ci.org/facciocose/django-italian-utils)
+[![Build Status](https://travis-ci.org/facciocose/django-italian-utils.svg?branch=master)](https://travis-ci.org/facciocose/django-italian-utils) [![Coverage Status](https://img.shields.io/coveralls/facciocose/django-italian-utils.svg)](https://coveralls.io/r/facciocose/django-italian-utils?branch=master)
 
 Libreria di utility per semplificare la creazione di applicazioni italiane
 
