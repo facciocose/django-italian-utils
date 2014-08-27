@@ -3,6 +3,7 @@ from .validators import validate_codice_fiscale, validate_partita_iva
 from django.core.exceptions import ValidationError
 from .utils import REGIONI
 
+
 class ValidateCodiceFiscaleTestCase(TestCase):
     def test_codice_fiscale_vuoto(self):
         self.assertRaises(
@@ -24,6 +25,12 @@ class ValidateCodiceFiscaleTestCase(TestCase):
             validate_codice_fiscale,
             'ABCDEF00A00A000A'
         )
+
+    def test_codice_fiscale_formalmente_corretto(self):
+        try:
+            validate_codice_fiscale('RSSMRA14M26H501N')
+        except ValidationError:
+            self.fail()
 
 
 class ValidatePartitaIva(TestCase):
@@ -47,6 +54,12 @@ class ValidatePartitaIva(TestCase):
             validate_partita_iva,
             '12345678901'
         )
+
+    def test_partita_iva_formalmente_corretta(self):
+        try:
+            validate_partita_iva('12345678905')
+        except ValidationError:
+            self.fail()
 
 
 class ValidateRegioni(TestCase):
