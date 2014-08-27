@@ -6,6 +6,8 @@ Libreria di utility per semplificare la creazione di applicazioni italiane
 
 Attualmente sono presenti dei validatori per **codice fiscale** e **partita iva** da usare nei modelli.
 ```python
+from italian_utils.validators import validate_codice_fiscale, validate_partita_iva
+
 class Persona(InformazioniBase):
     codice_fiscale = models.CharField(
         max_length=16,
