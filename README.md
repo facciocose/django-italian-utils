@@ -14,7 +14,7 @@ Attualmente sono presenti dei validatori per **codice fiscale** e **partita iva*
 ```python
 from italian_utils.validators import validate_codice_fiscale, validate_partita_iva
 
-class Persona(InformazioniBase):
+class Persona(models.Model):
     codice_fiscale = models.CharField(
         max_length=16,
         validators=[validate_codice_fiscale]
@@ -22,7 +22,7 @@ class Persona(InformazioniBase):
 
     # ...
 
-class Azienda(InformazioniBase):
+class Azienda(models.Model):
     partita_iva = models.CharField(
         max_length=11,
         validators=[validate_partita_iva]
