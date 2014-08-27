@@ -27,10 +27,7 @@ class ValidateCodiceFiscaleTestCase(TestCase):
         )
 
     def test_codice_fiscale_formalmente_corretto(self):
-        try:
-            validate_codice_fiscale('RSSMRA14M26H501N')
-        except ValidationError:
-            self.fail()
+        self.assertEqual(validate_codice_fiscale('RSSMRA14M26H501N'), None)
 
 
 class ValidatePartitaIva(TestCase):
@@ -56,10 +53,7 @@ class ValidatePartitaIva(TestCase):
         )
 
     def test_partita_iva_formalmente_corretta(self):
-        try:
-            validate_partita_iva('12345678905')
-        except ValidationError:
-            self.fail()
+        self.assertEqual(validate_partita_iva('12345678905'), None)
 
 
 class ValidateRegioni(TestCase):
