@@ -1,5 +1,7 @@
 # django-italian-utils
 
+[![Build Status](https://travis-ci.org/facciocose/django-italian-utils.svg?branch=master)](https://travis-ci.org/facciocose/django-italian-utils)
+
 Libreria di utility per semplificare la creazione di applicazioni italiane
 
 Attualmente sono presenti dei validatori per **codice fiscale** e **partita iva** da usare nei modelli.
