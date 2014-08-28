@@ -62,7 +62,7 @@ Un dizionario delle [regioni e le relative province con abbreviazioni annesse](h
 
 È possibile importare il file zip con l'[elenco dei comuni proveniente dal sito istat](http://www.istat.it/it/archivio/comuni) con un comando manage.py
 
-`python manage.py importacomuni <file_zip>
+`python manage.py importacomuni <file_zip>`
 
 ## TODO
 
