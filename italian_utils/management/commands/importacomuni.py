@@ -3,6 +3,7 @@ import zipfile
 import re
 import csv
 from django.utils.six import PY3
+from italian_utils.models import Comune
 
 
 class Command(BaseCommand):
@@ -35,8 +36,12 @@ class Command(BaseCommand):
 
             comuni_reader = csv.DictReader(csvfile, delimiter=';')
             for row in comuni_reader:
-                print(row)
-                break
+                nome = row['Solo denominazione in italiano']
+                codice_catastale = row['Codice Catastale ']
+                if nome and codice_catastale:
+                    c = Comune(nome=nome, codice_catastale=codice_catastale)
+                    c.save()
+                self.stdout.write('Comuni importati correttamente')
 
         except IndexError:
             raise CommandError('Nessun file specificato')
