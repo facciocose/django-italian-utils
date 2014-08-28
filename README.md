@@ -29,7 +29,7 @@ INSTALLED_APPS = (
 # ...
 ```
 
-Effettuare le migrazioni (attualmente compatibili solo con django <=1.7)
+Effettuare le migrazioni (attualmente compatibili solo con django >=1.7)
 
 `python manage.py migrate`
 
