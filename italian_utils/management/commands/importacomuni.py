@@ -47,8 +47,3 @@ class Command(BaseCommand):
             raise CommandError('Nessun file specificato')
         except IOError:
             raise CommandError('File non trovato o corrotto')
-
-
-        #zipfile.ZipFile()
-#        print(options['file_zip'])
-#        self.stdout.write('ok')
