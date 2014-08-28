@@ -6,7 +6,32 @@ Libreria di utility per semplificare la creazione di applicazioni italiane
 
 ## Installazione
 
+Installare il pacchetto pypi
+
 `pip install django-italian-utils`
+
+Aggiungere `italian_utils` alle app installate
+
+```python
+#...
+
+INSTALLED_APPS = (
+    # ...
+    'italian_utils',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+)
+
+# ...
+```
+
+Effettuare le migrazioni (attualmente compatibili solo con django <=1.7)
+
+`python manage.py migrate`
 
 ## Contenuto
 
@@ -33,6 +58,14 @@ class Azienda(models.Model):
 
 Un dizionario delle [regioni e le relative province con abbreviazioni annesse](https://github.com/facciocose/django-italian-utils/blob/master/italian_utils/utils.py).
 
+### Elenco dei comuni
+
+È possibile importare il file zip con l'[elenco dei comuni proveniente dal sito istat](http://www.istat.it/it/archivio/comuni) con un comando manage.py
+
+`python manage.py importacomuni <file_zip>
+
 ## TODO
 
-- Aggiungere l'elenco aggiornato dei comuni italiani (riferimento: http://www.istat.it/it/archivio/comuni) da usare nei `ChoiceField`
+- Aggiornare la validazione del CF per includere i casi di omocodia
+- Creare le tuple da usare nei ChoiceField
+- Mappare i modelli di comuni, province e regioni tramite i codici istat
