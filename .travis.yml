@@ -16,6 +16,8 @@ install:
 before_script:
   - django-admin.py startproject project
   - cd project
+  - mkdir -p italian_utils/tests
+  - curl -o italian_utils/tests/comuni-italiani.zip http://www.istat.it/it/files/2011/01/Elenco_Comuni_Italiani_al-30_06_2014.zip?title=Codici+comuni%2C+province+e+regioni+-+30%2Fgiu%2F2014+-+Elenco+comuni+italiani+%28xls-csv%29.zip
 
 script: coverage run --source='italian_utils' manage.py test italian_utils
 after_success: coveralls

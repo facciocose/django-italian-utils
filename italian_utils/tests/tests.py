@@ -1,9 +1,11 @@
 from django.test import TestCase
 from django.core.exceptions import ValidationError
+from django.core.management.base import CommandError
 from italian_utils.validators import validate_codice_fiscale
 from italian_utils.validators import validate_partita_iva
 from italian_utils.utils import REGIONI
 from italian_utils.models import Comune
+from django.core.management import call_command
 
 
 class ValidateCodiceFiscaleTestCase(TestCase):
@@ -72,3 +74,18 @@ class ValidateComuni(TestCase):
     def test_crea_comune(self):
         comune = Comune(nome='Catania', codice_catastale='C351')
         self.assertEqual(str(comune), 'C351: Catania')
+
+
+class ValidateImportaComuni(TestCase):
+    def test_importa_comuni_no_param(self):
+        self.assertRaises(
+            CommandError,
+            call_command,
+            'importacomuni'
+        )
+
+    def test_importa_comuni(self):
+        import os
+        print(os.getcwd())
+        filename = 'italian_utils/tests/elenco-comuni.zip'
+        call_command('importacomuni', filename)
