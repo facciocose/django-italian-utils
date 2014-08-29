@@ -1,8 +1,9 @@
 from django.test import TestCase
-from .validators import validate_codice_fiscale, validate_partita_iva
 from django.core.exceptions import ValidationError
-from .utils import REGIONI
-from .models import Comune
+from italian_utils.validators import validate_codice_fiscale
+from italian_utils.validators import validate_partita_iva
+from italian_utils.utils import REGIONI
+from italian_utils.models import Comune
 
 
 class ValidateCodiceFiscaleTestCase(TestCase):
