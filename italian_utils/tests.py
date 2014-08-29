@@ -2,6 +2,7 @@ from django.test import TestCase
 from .validators import validate_codice_fiscale, validate_partita_iva
 from django.core.exceptions import ValidationError
 from .utils import REGIONI
+from .models import Comune
 
 
 class ValidateCodiceFiscaleTestCase(TestCase):
@@ -64,3 +65,9 @@ class ValidateRegioni(TestCase):
         self.assertTrue(
             any(['Roma' in comune['nome'] for comune in REGIONI['Lazio']])
         )
+
+
+class ValidateComuni(TestCase):
+    def test_crea_comune(self):
+        comune = Comune(nome='Catania', codice_catastale='C351')
+        self.assertEqual(str(comune), 'C351: Catania')
