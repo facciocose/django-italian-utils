@@ -6,18 +6,16 @@ python:
 
 env:
   matrix:
-    - DJANGO_VERSION=1.11
-    - DJANGO_VERSION=2.1.7
-  global:
-  - DJANGO_URL=https://www.djangoproject.com/download/\${DJANGO_VERSION}/tarball/
+    - DJANGO_URL=https://www.djangoproject.com/download/1.11/tarball/
+    - DJANGO_URL=https://www.djangoproject.com/download/2.1.7/tarball/
 
 matrix:
   exclude:
     - python: 2.7
-      env: DJANGO_VERSION=2.1.7
+      env: DJANGO_URL=https://www.djangoproject.com/download/2.1.7/tarball/
 
 install:
-  - pip install $DJANGO
+  - pip install $DJANGO_URL
   - pip install coverage
   - pip install coveralls
   - python setup.py develop
