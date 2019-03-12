@@ -86,6 +86,5 @@ class ValidateImportaComuni(TestCase):
 
     def test_importa_comuni(self):
         import os
-        print(os.getcwd())
-        filename = 'italian_utils/tests/elenco-comuni.zip'
+        filename = 'italian_utils_tests/comuni-italiani.csv'
         call_command('importacomuni', filename)
