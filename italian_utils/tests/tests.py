@@ -6,6 +6,12 @@ from italian_utils.validators import validate_partita_iva
 from italian_utils.utils import REGIONI
 from italian_utils.models import Comune
 from django.core.management import call_command
+from django.utils.six import PY3
+if PY3:
+    from urllib.request import urlretrieve
+else:
+    from urllib import urlretrieve
+from os import remove
 
 
 class ValidateCodiceFiscaleTestCase(TestCase):
@@ -77,6 +83,17 @@ class ValidateComuni(TestCase):
 
 
 class ValidateImportaComuni(TestCase):
+    comuni_filename = 'comuni-italiani.csv'
+    comuni_file_url = 'https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv'
+
+    @classmethod
+    def setUpClass(cls):
+        urlretrieve(cls.comuni_file_url, cls.comuni_filename)
+
+    @classmethod
+    def tearDownClass(cls):
+        remove(cls.comuni_filename)
+
     def test_importa_comuni_no_param(self):
         self.assertRaises(
             CommandError,
@@ -85,6 +102,5 @@ class ValidateImportaComuni(TestCase):
         )
 
     def test_importa_comuni(self):
-        import os
-        filename = 'italian_utils/tests/comuni-italiani.csv'
-        call_command('importacomuni', filename)
+        call_command('importacomuni', self.comuni_filename)
+
