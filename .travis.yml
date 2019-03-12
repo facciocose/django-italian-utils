@@ -21,10 +21,7 @@ install:
   - python setup.py develop
 
 before_script:
-  - django-admin.py startproject project
-  - cd project
-  - mkdir -p italian_utils/tests
-  - curl -o italian_utils/tests/comuni-italiani.csv https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv
+  - cd example
 
 script: coverage run --source='italian_utils' manage.py test italian_utils
 after_success: coveralls
