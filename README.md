@@ -29,7 +29,7 @@ INSTALLED_APPS = (
 # ...
 ```
 
-Effettuare le migrazioni (attualmente compatibili solo con django >=1.7)
+Effettuare le migrazioni
 
 `python manage.py migrate`
 
@@ -60,9 +60,9 @@ Un dizionario delle [regioni e le relative province con abbreviazioni annesse](h
 
 ### Elenco dei comuni
 
-È possibile importare il file zip con l'[elenco dei comuni proveniente dal sito istat](http://www.istat.it/it/archivio/comuni) con un comando manage.py
+È possibile importare il file CSV con l'[elenco dei comuni proveniente dal sito istat](https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv) con un comando manage.py
 
-`python manage.py importacomuni <file_zip>`
+`python manage.py importacomuni <file_csv>`
 
 ## TODO
 
