@@ -1,7 +1,8 @@
 import os
 from setuptools import setup, find_packages
-# allow setup.py to be run from any path
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(
     name='django-italian-utils',
@@ -10,6 +11,8 @@ setup(
     include_package_data=True,
     license='MIT License',
     description='Libreria di utility per semplificare la creazione di applicazioni italiane.',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url='https://github.com/facciocose/django-italian-utils',
     author='Luca Marra',
     author_email='luca@facciocose.it',
