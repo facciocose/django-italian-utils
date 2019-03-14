@@ -25,8 +25,12 @@ class Command(BaseCommand):
 
         comuni_reader = csv.DictReader(csvfile, delimiter=';')
         for row in comuni_reader:
-            nome = row['Denominazione (Italiana e straniera)']
-            codice_catastale = row['Codice Catastale del comune']
+            if PY3:
+                nome = row['Denominazione (Italiana e straniera)']
+                codice_catastale = row['Codice Catastale del comune']
+            else:
+                nome = row['Denominazione (Italiana e straniera)'].decode("latin-1").encode('utf8')
+                codice_catastale = row['Codice Catastale del comune'].decode("latin-1").encode('utf8')
             if nome and codice_catastale:
                 c = Comune(nome=nome, codice_catastale=codice_catastale)
                 c.save()
