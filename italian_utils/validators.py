@@ -4,11 +4,29 @@ import string
 
 
 def validate_codice_fiscale(value):
+    conversione_omocodia = {
+        'L': '0',
+        'M': '1',
+        'N': '2',
+        'P': '3',
+        'Q': '4',
+        'R': '5',
+        'S': '6',
+        'T': '7',
+        'U': '8',
+        'V': '9',
+    }
+
+    codice_fiscale_da_controllare = list(value)
+    for i, x in enumerate(value[:-1].upper()):
+        if i in [6,7,9,10,12,13,14,15] and not x.isnumeric():
+            codice_fiscale_da_controllare[i] = conversione_omocodia[x]
+
     codice_fiscale_re = re.compile(
         r'^[a-zA-Z]{6}\d{2}[a-zA-Z]\d{2}[a-zA-Z]\d{3}[a-zA-Z]'
     )
 
-    if not codice_fiscale_re.match(value):
+    if not codice_fiscale_re.match(''.join(codice_fiscale_da_controllare)):
         raise ValidationError('Inserisci un codice fiscale formalmente valido')
 
     conversione_pari = {

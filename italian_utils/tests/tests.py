@@ -39,6 +39,9 @@ class ValidateCodiceFiscaleTestCase(TestCase):
     def test_codice_fiscale_formalmente_corretto(self):
         self.assertEqual(validate_codice_fiscale('RSSMRA14M26H501N'), None)
 
+    def test_codice_fiscale_formalmente_corretto_omocodico(self):
+        self.assertEqual(validate_codice_fiscale('RSSMRA14M26H50MF'), None)
+
 
 class ValidatePartitaIva(TestCase):
     def test_partita_iva_vuota(self):
