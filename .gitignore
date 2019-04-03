@@ -55,6 +55,3 @@ docs/_build/
 # virtual environment
 venv/
 
-# text editors
-.vscode/
-
