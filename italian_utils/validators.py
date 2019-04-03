@@ -19,7 +19,7 @@ def validate_codice_fiscale(value):
 
     codice_fiscale_da_controllare = list(value)
     for i, x in enumerate(value[:-1].upper()):
-        if i in [6,7,9,10,12,13,14,15] and not x.isnumeric():
+        if i in [6,7,9,10,12,13,14,15] and not x.isdigit():
             codice_fiscale_da_controllare[i] = conversione_omocodia[x]
 
     codice_fiscale_re = re.compile(
