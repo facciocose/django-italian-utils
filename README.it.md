@@ -2,17 +2,15 @@
 
 [![Build Status](https://travis-ci.org/facciocose/django-italian-utils.svg?branch=master)](https://travis-ci.org/facciocose/django-italian-utils) [![Coverage Status](https://coveralls.io/repos/github/facciocose/django-italian-utils/badge.svg?branch=master)](https://coveralls.io/github/facciocose/django-italian-utils?branch=master)
 
-Utility library which simplifies creation of italian applications
+Libreria di utility per semplificare la creazione di applicazioni italiane
 
-[Italian README](README.it.md)
+## Installazione
 
-## Install
-
-Use pypi to install the package
+Installare il pacchetto pypi
 
 `pip install django-italian-utils`
 
-Add `italian_utils` to installed apps
+Aggiungere `italian_utils` alle app installate
 
 ```python
 #...
@@ -31,13 +29,13 @@ INSTALLED_APPS = (
 # ...
 ```
 
-Run migrations
+Effettuare le migrazioni
 
 `python manage.py migrate`
 
-## Contents
+## Contenuto
 
-Validators for **codice fiscale** and **partita iva** inside your models.
+Sono presenti dei validatori per **codice fiscale** e **partita iva** da usare nei modelli.
 ```python
 from italian_utils.validators import validate_codice_fiscale, validate_partita_iva
 
@@ -58,14 +56,14 @@ class Azienda(models.Model):
     # ...
 ```
 
-A dictionary of italian [region and provinces with abbreviations](italian_utils/utils.py).
+Un dizionario delle [regioni e le relative province con abbreviazioni annesse](italian_utils/utils.py).
 
-### City list
+### Elenco dei comuni
 
-You can import the CSV file containing the [list of cities provided by istat](https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv) with a manage.py command
+È possibile importare il file CSV con l'[elenco dei comuni proveniente dal sito istat](https://www.istat.it/storage/codici-unita-amministrative/Elenco-comuni-italiani.csv) con un comando manage.py
 
 `python manage.py importacomuni <file_csv>`
 
 ## TODO
 
-- Link models of cities, provinces and regions using istat codes
+- Mappare i modelli di comuni, province e regioni tramite i codici istat
