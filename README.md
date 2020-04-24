@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/facciocose/django-italian-utils.svg?branch=master)](https://travis-ci.org/facciocose/django-italian-utils) [![Coverage Status](https://coveralls.io/repos/github/facciocose/django-italian-utils/badge.svg?branch=master)](https://coveralls.io/github/facciocose/django-italian-utils?branch=master)
 
-Utility library which simplifies creation of italian applications
+Utility library which simplifies the creation of Italian applications
 
 [Italian README](README.it.md)
 
@@ -58,7 +58,7 @@ class Azienda(models.Model):
     # ...
 ```
 
-A dictionary of italian [region and provinces with abbreviations](italian_utils/utils.py).
+A dictionary of Italian [region and provinces with abbreviations](italian_utils/utils.py).
 
 ### City list
 
